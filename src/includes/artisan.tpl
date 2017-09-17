@@ -33,6 +33,20 @@
                      document.getElementById("bt").innerHTML = v;
                      document.getElementById("bt2").innerHTML = v;
                  }
+                 if (data.data.deltaet) {
+                     if (data.data.et.toString().indexOf(".") > -1) {
+                         document.getElementById("deltaet").innerHTML = (("   " + data.data.deltaet).slice(-5)).replace(" ","&nbsp;");
+                     } else {
+                         document.getElementById("deltaet").innerHTML = (("   " + data.data.deltaet).slice(-3)).replace(" ","&nbsp;");
+                     }
+                 }
+                 if (data.data.deltabt) {
+                     if (data.data.et.toString().indexOf(".") > -1) {
+                         document.getElementById("deltabt").innerHTML = (("   " + data.data.deltabt).slice(-5)).replace(" ","&nbsp;");
+                     } else {
+                         document.getElementById("deltabt").innerHTML = (("   " + data.data.deltabt).slice(-3)).replace(" ","&nbsp;");
+                     }
+                 }
                  $('#artisan').bigtext();
              }
              if (data.alert && data.alert.text) { // { "alert" : { "title": <string>, "text": <string>, "timeout": <int> }}
@@ -50,20 +64,20 @@
          html {
          -webkit-text-size-adjust: none; /* Prevent font scaling in landscape */
          }
-         body,html { 
-         font-family: 'alarmclock' !important; 
-         background-color:#EEEEEE; 
+         body,html {
+         font-family: 'alarmclock' !important;
+         background-color:#EEEEEE;
          margin: 0 !important;
          padding: 0 !important;
-         width: 100%; 
+         width: 100%;
          height: 100%;
          }
          @media screen and (orientation: landscape) {
          .spacer,.spacel,#hbt {
-         display: none;  
+         display: none;
          }
          #bt, .space, .tspace {
-         display: inline;  
+         display: inline;
          }
          #showspacel,#showspacer {
             display: {{showspace}};
@@ -74,10 +88,10 @@
             display: none;
          }
          .space, #bt, .spacel {
-         display: none;  
+         display: none;
          }
          #hbt, .spacer, .tspace {
-         display: inline;  
+         display: inline;
          }
          }
          @media only screen and (orientation: portrait) and (min-device-width : 768px) and (max-device-width : 1024px) {
@@ -88,7 +102,7 @@
          display: none;
          }
          #hbt, .spacel, .tspace {
-         display: inline;  
+         display: inline;
          }
          }
          #time {
@@ -113,9 +127,38 @@
    </head>
    <body>
       <div id="artisan" style="width:100%;">
-         <div>&nbsp;<span class="tspace">&nbsp;</span><span id="time">00:00</span><span class="tspace">&nbsp;</span>&nbsp;</div>
-         <div><span id="showspacel">&nbsp;</span><span id="showet"><span class="spacel">&nbsp;</span><span class="spacer">&thinsp;</span><span id="et">{{!nonesymbol}}</span><span class="spacel">&nbsp;</span><span class="spacer">&thinsp;</span></span><span id="showbt"><span class="space">&thinsp;</span><span id="bt">{{!nonesymbol}}</span></span><span id="showspacer">&nbsp;</span></div>
-         <div id="hbt"><span id="showhbt"><span class="spacel">&nbsp;</span><span class="spacer">&thinsp;</span><span id="bt2">{{!nonesymbol}}</span><span class="spacel">&nbsp;</span><span class="spacer">&thinsp;</span></span></div>
+         <div>&nbsp;
+           <span class="tspace">&nbsp;
+           </span><span id="time">00:00</span><span class="tspace">&nbsp;
+           </span>&nbsp;
+         </div>
+
+         <div><span id="showspacel">&nbsp;
+           </span><span id="showet"><span class="spacel">&nbsp;
+           </span><span class="spacer">&thinsp;
+           </span><span id="et">{{!nonesymbol}}</span><span class="spacel">&nbsp;
+           </span><span class="spacer">&thinsp;</span></span><span id="showbt"><span class="space">&thinsp;
+           </span><span id="bt">{{!nonesymbol}}</span></span><span id="showspacer">&nbsp;
+           </span>
+         </div>
+
+         <div id="hbt"><span id="showhbt"><span class="spacel">&nbsp;
+           </span><span class="spacer">&thinsp;
+           </span><span id="bt2">{{!nonesymbol}}</span><span class="spacel">&nbsp;
+           </span><span class="spacer">&thinsp;
+           </span>
+           </span>
+         </div>
+
+         <div><span id="showspacel">&nbsp;
+           </span><span id="showet"><span class="spacel">&nbsp;
+           </span><span class="spacer">&thinsp;
+           </span><span id="deltaet">{{!nonesymbol}}</span><span class="spacel">&nbsp;
+           </span><span class="spacer">&thinsp;</span></span><span id="showbt"><span class="space">&thinsp;
+           </span><span id="deltabt">{{!nonesymbol}}</span></span><span id="showspacer">&nbsp;
+           </span>
+         </div>
+
       </div>
       <script src="jquery-1.11.1.min.js"></script>
       <script src="bigtext.js"></script>
